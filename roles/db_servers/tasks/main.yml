@@ -1,0 +1,10 @@
+- hosts: db_servers
+  tags: db, mariadb, ubuntu
+  become: true
+  tasks:
+
+  - name: install mariadb
+    apt:
+      name: mariadb-server
+      state: latest
+    when: ansible_distribution == "Ubuntu"
